@@ -1,5 +1,4 @@
-const cardsCollection = [
-  {
+const cardsCollection = [{
     name: 'clown',
     img: 'img/pepe-clown.jpg'
   },
@@ -92,7 +91,7 @@ function createBoard() {
   let pairsCount = selectPairsCount.value;
   let gameDifficulty = selectPairsCount.selectedOptions[0].text;
   let selectedCards = shuffleCards(cardsCollection).slice(0, pairsCount);
-  
+
   switch (gameDifficulty) {
     case 'Easy':
       grid.style.width = '700px';
@@ -109,7 +108,7 @@ function createBoard() {
     default:
   }
 
-  playingPairs = [...selectedCards,...selectedCards];
+  playingPairs = [...selectedCards, ...selectedCards];
 
   shuffleCards(playingPairs);
 
@@ -132,14 +131,14 @@ function createBoard() {
     grid.childNodes.forEach(card => card.addEventListener('click', flipCard));
   }
 }
- 
+
 function resetBoard() {
   resultDisplay.textContent = 0;
   cardsWon = [];
-  
+
   grid.childNodes.forEach(card => card.removeEventListener('click', flipCard));
-  
-  while(grid.firstChild) {
+
+  while (grid.firstChild) {
     grid.removeChild(grid.lastChild);
   }
 }
@@ -169,14 +168,14 @@ function flipCard() {
 
 function checkForMatch() {
   let isMatch = cardsChosen[0].dataset.name === cardsChosen[1].dataset.name;
-  
+
   if (isMatch) {
     cardsChosen.forEach(item => cardsWon.push(item));
     disableCards();
   } else {
     unflipCards();
   }
-  
+
   if (cardsWon.length === playingPairs.length) {
     resultDisplay.textContent = 'You win! :)';
   } else {
@@ -207,18 +206,16 @@ function clearBoard() {
 
 
 function shuffleCards(array) {
-  let currentIndex = array.length, randomIndex;
-  
-  while(currentIndex !== 0) {
+  let currentIndex = array.length,
+    randomIndex;
+
+  while (currentIndex !== 0) {
     randomIndex = Math.floor(Math.random() * currentIndex);
     currentIndex--;
 
-    [array[currentIndex], array[randomIndex]] = 
-    [array[randomIndex], array[currentIndex]];
+    [array[currentIndex], array[randomIndex]] = [array[randomIndex], array[currentIndex]];
   }
   return array;
 }
 
 createBoard();
-
-

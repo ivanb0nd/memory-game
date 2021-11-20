@@ -24,7 +24,7 @@ label {
   align-items: center;
 }
 
-.title{
+.title {
   margin-bottom: 2rem;
 }
 
@@ -32,7 +32,7 @@ label {
   margin-bottom: 1rem;
 }
 
-.reset-btn{
+.reset-btn {
   margin-left: 1rem;
 }
 
@@ -40,7 +40,7 @@ label {
   margin-bottom: 2rem;
   display: flex;
   align-items: center;
-  
+
 }
 
 .cards-container {
@@ -71,7 +71,7 @@ label {
   transform-style: preserve-3d;
   transform: scale(1);
   transition: transform .5s;
-  
+
 }
 
 .card .back-face {
